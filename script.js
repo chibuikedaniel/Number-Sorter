@@ -6,9 +6,9 @@ const sortInputArray = (event) => {
     const inputValues = [...document.getElementsByClassName("values-dropdown")].map((dropdown) => Number(dropdown.value));
 
     //  the following line to test with a different sorting algorithm
-    // Change the assigned value of sortedValue to the algorithm you want to use/test [ bubbleSort, selectionSort]
+    // Change the assigned value of sortedValue to the algorithm you want to use/test [ bubbleSort, selectionSort, insertionSort]
 
-    const sortedValues = selectionSort(inputValues);
+    const sortedValues = insertionSort(inputValues);
 
     updateUI(sortedValues);
 }
@@ -44,6 +44,19 @@ const selectionSort = (array) => {
         const temp = array[i]
         array[i] = array[minIndex]
         array[minIndex] = temp
+    }
+    return array;
+}
+
+const insertionSort = (array) => {
+    for (let i = 1; i < array.length; i++) {
+        const currentValue = array[i];
+        let j = i - 1;
+        while (j >= 0 && array[j] > currentValue) {
+            array[j + 1] = array[j];
+            j--;
+        }
+        array[j + 1] = currentValue;
     }
     return array;
 }
