@@ -6,9 +6,14 @@ const sortInputArray = (event) => {
     const inputValues = [...document.getElementsByClassName("values-dropdown")].map((dropdown) => Number(dropdown.value));
 
     //  the following line to test with a different sorting algorithm
-    // Change the assigned value of sortedValue to the algorithm you want to use/test [ bubbleSort, selectionSort, insertionSort]
+    // Change the assigned value of sortedValue to the algorithm you want to use/test [ bubbleSort, selectionSort, insertionSort] or use the in=bulit sort method that is currently commented out
 
     const sortedValues = insertionSort(inputValues);
+
+    // const sortedValues = inputValues.sort((a, b) => {
+    //     return a - b;
+    // });
+
 
     updateUI(sortedValues);
 }
